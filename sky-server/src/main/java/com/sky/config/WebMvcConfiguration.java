@@ -73,6 +73,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     /**
      * 扩展springmvc框架的消息转换器
+     * 此处用来转换时间格式为"yyyy-MM-dd HH:mm"
      * @param converters
      */
     @Override

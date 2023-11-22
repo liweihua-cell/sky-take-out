@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="git">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +53,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -78,6 +72,15 @@
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
+      <recent name="D:\code\sky-take-out\sky-server\src\main\resources\mapper" />
+      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
+      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\service" />
+      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -98,7 +101,7 @@
       <updated>1700536471679</updated>
       <workItem from="1700536472987" duration="13024000" />
       <workItem from="1700555054993" duration="2231000" />
-      <workItem from="1700614889571" duration="11062000" />
+      <workItem from="1700614889571" duration="12133000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1700537029212</created>
@@ -142,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700621771774</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="git">
+      <created>1700632311338</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700632311338</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

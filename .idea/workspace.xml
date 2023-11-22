@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="git">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -30,7 +33,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../JAVA-TOOL/apache-maven-3.5.0" />
+        <option name="mavenHome" value="D:\JAVA-TOOL\apache-maven-3.5.0" />
         <option name="userSettingsFile" value="D:\JAVA-TOOL\apache-maven-3.5.0\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -83,6 +86,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sky-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sky.SkyApplication" />
@@ -101,7 +115,7 @@
       <updated>1700536471679</updated>
       <workItem from="1700536472987" duration="13024000" />
       <workItem from="1700555054993" duration="2231000" />
-      <workItem from="1700614889571" duration="12133000" />
+      <workItem from="1700614889571" duration="15751000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1700537029212</created>
@@ -152,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700632311338</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="git">
+      <created>1700633247220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700633247220</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

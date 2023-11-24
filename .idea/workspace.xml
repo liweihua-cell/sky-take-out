@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="git">
+    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,7 @@
       <list>
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -56,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sky-server/src/main/resources/mapper" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -67,25 +73,29 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
       <recent name="D:\code\sky-take-out\sky-server\src\main\resources\mapper" />
+      <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
       <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
       <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\service" />
       <recent name="D:\code\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sky.interceptor" />
+      <recent name="com.sky.controller.user" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.SkyApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -97,6 +107,70 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HttpClientTest.testGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.HttpClientTest" />
+      <option name="METHOD_NAME" value="testGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpClientTest.testPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.HttpClientTest" />
+      <option name="METHOD_NAME" value="testPost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringDataRedisTest.testHash" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.SpringDataRedisTest" />
+      <option name="METHOD_NAME" value="testHash" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringDataRedisTest.testRedisTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.SpringDataRedisTest" />
+      <option name="METHOD_NAME" value="testRedisTemplate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sky-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sky.SkyApplication" />
@@ -104,6 +178,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HttpClientTest.testPost" />
+        <item itemvalue="JUnit.HttpClientTest.testGet" />
+        <item itemvalue="JUnit.SpringDataRedisTest.testRedisTemplate" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -115,7 +196,10 @@
       <updated>1700536471679</updated>
       <workItem from="1700536472987" duration="13024000" />
       <workItem from="1700555054993" duration="2231000" />
-      <workItem from="1700614889571" duration="15751000" />
+      <workItem from="1700614889571" duration="22833000" />
+      <workItem from="1700702943657" duration="14242000" />
+      <workItem from="1700726962010" duration="656000" />
+      <workItem from="1700786733871" duration="12784000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1700537029212</created>
@@ -173,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700633247220</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）">
+      <created>1700637168346</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700637168346</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +284,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git" />
-    <option name="LAST_COMMIT_MESSAGE" value="git" />
+    <MESSAGE value="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）" />
+    <option name="LAST_COMMIT_MESSAGE" value="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

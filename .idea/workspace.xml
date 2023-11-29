@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="git">
+    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="来电提醒业务代码开发">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/OrderDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/OrderDetailMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/ShoppingCartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/ShoppingCartMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/impl/OrderSeviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/service/impl/OrderSeviceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/ShoppingCartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/ShoppingCartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,17 +99,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SkyApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HttpClientTest.testGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
@@ -195,7 +193,8 @@
       <workItem from="1700726962010" duration="656000" />
       <workItem from="1700786733871" duration="12784000" />
       <workItem from="1701047321268" duration="15103000" />
-      <workItem from="1701134895442" duration="4905000" />
+      <workItem from="1701134895442" duration="12583000" />
+      <workItem from="1701218350597" duration="4852000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1700537029212</created>
@@ -281,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701135176387</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="来电提醒业务代码开发">
+      <created>1701150265137</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701150265137</updated>
+    </task>
+    <task id="LOCAL-00014" summary="来电提醒业务代码开发">
+      <created>1701150273212</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701150273212</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +315,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）" />
     <MESSAGE value="git" />
-    <option name="LAST_COMMIT_MESSAGE" value="git" />
+    <MESSAGE value="来电提醒业务代码开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="来电提醒业务代码开发" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

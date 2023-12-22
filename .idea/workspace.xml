@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="git">
+    <list default="true" id="1a807ae2-4e5a-4608-a41f-f3cda2ba7799" name="Default Changelist" comment="使用mybatis写入sql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/SkyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/SkyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/sky/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/sky/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/sky/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,15 +109,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -227,7 +224,8 @@
       <workItem from="1701822949406" duration="819000" />
       <workItem from="1702963939518" duration="1514000" />
       <workItem from="1703032803532" duration="2933000" />
-      <workItem from="1703041586284" duration="1281000" />
+      <workItem from="1703041586284" duration="3814000" />
+      <workItem from="1703211144047" duration="319000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1700537029212</created>
@@ -341,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701670999366</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="使用mybatis写入sql">
+      <created>1703042939899</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703042939899</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +368,8 @@
     <MESSAGE value="公共字段自动填充代码实现（涉及切面和注解反射很有用，多看哟~~）" />
     <MESSAGE value="来电提醒业务代码开发" />
     <MESSAGE value="git" />
-    <option name="LAST_COMMIT_MESSAGE" value="git" />
+    <MESSAGE value="使用mybatis写入sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用mybatis写入sql" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

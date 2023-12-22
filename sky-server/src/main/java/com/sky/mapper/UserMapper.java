@@ -36,7 +36,7 @@ public interface UserMapper {
      * @param userId
      * @return
      */
-    @Select("select 8 from user where id = #{id}")
+    @Select("select * from user where id = #{id}")
     User getById(Long userId);
 
 
@@ -46,4 +46,6 @@ public interface UserMapper {
      * @return
      */
     Integer countByMap(Map map);
+
+    User getByUserId(Long userId);
 }

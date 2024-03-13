@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 微信登录
+     *
      * @param userLoginDTO
      * @return
      */
@@ -47,12 +48,12 @@ public class UserServiceImpl implements UserService {
         String openId = getOpenId(userLoginDTO);
 
         //判断openId是否为空，如果为空则登录失败，抛出业务异常
-        if(openId == null){
+        if (openId == null) {
             throw new LoginFailedException(MessageConstant.LOGIN_FAILED);
         }
         //判断当前用户是否为新用户
         User user = userMapper.getByOpenId(openId);
-        if(user == null){
+        if (user == null) {
             //如果是新用户自动完成注册
             user = User.builder()
                     .openid(openId)
@@ -69,16 +70,17 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 调用微信接口服务，获取微信用户的openId
+     *
      * @param userLoginDTO
      * @return
      */
-    private String getOpenId(UserLoginDTO userLoginDTO){
+    private String getOpenId(UserLoginDTO userLoginDTO) {
         //调用微信接口服务获取当前微信用户的openId
-        Map<String,String> map = new HashMap<>();
-        map.put("appid",weChatProperties.getAppid());
-        map.put("secret",weChatProperties.getSecret());
-        map.put("js_code",userLoginDTO.getCode());
-        map.put("grant_type","authorization_code");
+        Map<String, String> map = new HashMap<>();
+        map.put("appid", weChatProperties.getAppid());
+        map.put("secret", weChatProperties.getSecret());
+        map.put("js_code", userLoginDTO.getCode());
+        map.put("grant_type", "authorization_code");
         String response = HttpClientUtil.doGet(WX_LOGIN, map);
         System.out.println(response);
         JSONObject jsonObject = JSON.parseObject(response);

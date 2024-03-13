@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**自定义定时任务类
+/**
+ * 自定义定时任务类
+ *
  * @author liweihua
  * @classname MyTask
  * @description TODO

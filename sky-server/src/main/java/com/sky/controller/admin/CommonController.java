@@ -16,7 +16,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-/**通用接口
+/**
+ * 通用接口
+ *
  * @author liweihua
  * @classname CommonController
  * @description TODO
@@ -40,7 +42,7 @@ public class CommonController {
         //构造新的文件名
         String newFileName = UUID.randomUUID().toString() + originalFilename.substring(index);
         //将文件存储在服务器的磁盘目录中
-        file.transferTo(new File("D:\\"+newFileName));
+        file.transferTo(new File("D:\\" + newFileName));
         return null;
     }
 
@@ -48,17 +50,17 @@ public class CommonController {
     @PostMapping("/upload")
     @ApiOperation("文件上传到阿里云")
     public Result<String> upload(MultipartFile file) {
-        log.info("文件上传:{}",file);
-       try{
-           //获取原始文件名
-           String originalFilename = file.getOriginalFilename();
-           int index = originalFilename.lastIndexOf(".");
-           //构造新的文件名
-           String newFileName = UUID.randomUUID().toString() + originalFilename.substring(index);
-           aliOssUtil.upload(file.getBytes(),newFileName);
-       }catch (Exception e){
-           log.error("文件上传失败:{}",e);
-       }
+        log.info("文件上传:{}", file);
+        try {
+            //获取原始文件名
+            String originalFilename = file.getOriginalFilename();
+            int index = originalFilename.lastIndexOf(".");
+            //构造新的文件名
+            String newFileName = UUID.randomUUID().toString() + originalFilename.substring(index);
+            aliOssUtil.upload(file.getBytes(), newFileName);
+        } catch (Exception e) {
+            log.error("文件上传失败:{}", e);
+        }
         return Result.error(MessageConstant.UPLOAD_FAILED);
     }
 }

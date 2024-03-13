@@ -131,37 +131,39 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据id查询菜品和口味
+     *
      * @param id
      * @return
      */
-    public DishVO getByIdWithFlavor(Long id){
+    public DishVO getByIdWithFlavor(Long id) {
         //根据id查询菜品数据
         Dish dish = dishMapper.getById(id);
         //根据菜品id查询口味数据
         List<DishFlavor> dishFlavors = dishFlavorMapper.getByDishId(id);
         //将查询到的数据封装到dishVO
         DishVO dishVO = new DishVO();
-        BeanUtils.copyProperties(dish,dishVO);
+        BeanUtils.copyProperties(dish, dishVO);
         dishVO.setFlavors(dishFlavors);
         return dishVO;
     }
 
     /**
      * 根据菜品id修改菜品和口味信息
+     *
      * @param dishDTO
      * @return
      */
-    public void updateWithFlavor(DishDTO dishDTO){
+    public void updateWithFlavor(DishDTO dishDTO) {
         //修改菜品表基本信息
         Dish dish = new Dish();
-        BeanUtils.copyProperties(dishDTO,dish);
+        BeanUtils.copyProperties(dishDTO, dish);
         dishMapper.update(dish);
 
         //先删除原有数据
         dishFlavorMapper.deleteByDishId(dish.getId());
         // 再插入新口味数据
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        if(flavors != null && flavors.size()>0){
+        if (flavors != null && flavors.size() > 0) {
             flavors.forEach(dishFlavor -> {
                 dishFlavor.setDishId(dishDTO.getId());
             });
@@ -173,6 +175,7 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 条件查询菜品和口味
+     *
      * @param dish
      * @return
      */
@@ -183,7 +186,7 @@ public class DishServiceImpl implements DishService {
 
         for (Dish d : dishList) {
             DishVO dishVO = new DishVO();
-            BeanUtils.copyProperties(d,dishVO);
+            BeanUtils.copyProperties(d, dishVO);
 
             //根据菜品id查询对应的口味
             List<DishFlavor> flavors = dishFlavorMapper.getByDishId(d.getId());
@@ -198,6 +201,7 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据分类id查询菜品
+     *
      * @param categoryId
      * @return
      */
@@ -211,11 +215,12 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 菜品起售停售
+     *
      * @param status
      * @param id
      */
-    public void startOrStop(Integer status, Long id){
-        dishMapper.setStatus(status,id);
+    public void startOrStop(Integer status, Long id) {
+        dishMapper.setStatus(status, id);
     }
 
 }

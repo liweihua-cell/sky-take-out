@@ -67,14 +67,15 @@ public class OrderSeviceImpl implements OrderService {
 
     /**
      * 用户下单
+     *
      * @param ordersSubmitDTO
      * @return
      */
-    public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO){
+    public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
 
         //处理各种业务异常(地址簿为空、购物车数据为空)
         AddressBook addressBook = addressBookMapper.getById(ordersSubmitDTO.getAddressBookId());
-        if(addressBook == null){
+        if (addressBook == null) {
             throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
 
@@ -84,13 +85,13 @@ public class OrderSeviceImpl implements OrderService {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setUserId(userId);
         List<ShoppingCart> shoppingCartList = shoppingCartMapper.list(shoppingCart);
-        if(shoppingCartList == null ||shoppingCartList.size() == 0){
+        if (shoppingCartList == null || shoppingCartList.size() == 0) {
             throw new ShoppingCartBusinessException(MessageConstant.SHOPPING_CART_IS_NULL);
         }
         //向订单表插入一条数据
 
         Orders orders = new Orders();
-        BeanUtils.copyProperties(ordersSubmitDTO,orders);
+        BeanUtils.copyProperties(ordersSubmitDTO, orders);
         orders.setOrderTime(LocalDateTime.now());
         orders.setPayStatus(Orders.UN_PAID);
         orders.setStatus(Orders.PENDING_PAYMENT);
@@ -104,7 +105,7 @@ public class OrderSeviceImpl implements OrderService {
         List<OrderDetail> orderDetailList = new ArrayList<>();
         for (ShoppingCart cart : shoppingCartList) {
             OrderDetail orderDetail = new OrderDetail();
-            BeanUtils.copyProperties(cart,orderDetail);
+            BeanUtils.copyProperties(cart, orderDetail);
             orderDetail.setOrderId(orders.getId());//设置当前订单明细关联的订单id
             orderDetailList.add(orderDetail);
         }
@@ -175,14 +176,13 @@ public class OrderSeviceImpl implements OrderService {
 
         //通过websocket向浏览器推送消息
         Map map = new HashMap();
-        map.put("type",1);
-        map.put("orderId",ordersDB.getId());
-        map.put("content","订单号:"+outTradeNo);
+        map.put("type", 1);
+        map.put("orderId", ordersDB.getId());
+        map.put("content", "订单号:" + outTradeNo);
 
         String json = JSON.toJSONString(map);
         webSocketServer.sendToAllClient(json);
     }
-
 
 
     /**
@@ -225,7 +225,6 @@ public class OrderSeviceImpl implements OrderService {
     }
 
 
-
     /**
      * 查询订单详情
      *
@@ -246,7 +245,6 @@ public class OrderSeviceImpl implements OrderService {
 
         return orderVO;
     }
-
 
 
     /**
@@ -451,7 +449,6 @@ public class OrderSeviceImpl implements OrderService {
     }
 
 
-
     /**
      * 取消订单
      *
@@ -532,23 +529,24 @@ public class OrderSeviceImpl implements OrderService {
 
     /**
      * 客户催单
+     *
      * @param id
      * @return
      */
-   public void reminder(Long id){
-       // 根据id查询订单
-       Orders ordersDB = orderMapper.getById(id);
+    public void reminder(Long id) {
+        // 根据id查询订单
+        Orders ordersDB = orderMapper.getById(id);
 
-       // 校验订单是否存在
-       if (ordersDB == null) {
-           throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
-       }
+        // 校验订单是否存在
+        if (ordersDB == null) {
+            throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+        }
         Map map = new HashMap();
-       map.put("type",2);
-       map.put("orderId",id);
-       map.put("content","订单号:"+ordersDB.getNumber());
+        map.put("type", 2);
+        map.put("orderId", id);
+        map.put("content", "订单号:" + ordersDB.getNumber());
 
-       //通过websocket向客户端推送消息
-       webSocketServer.sendToAllClient(JSON.toJSONString(map));
-   }
+        //通过websocket向客户端推送消息
+        webSocketServer.sendToAllClient(JSON.toJSONString(map));
+    }
 }

@@ -18,6 +18,7 @@ public interface ReportService {
 
     /**
      * 统计指定区间内的营业额数据
+     *
      * @param begin
      * @param end
      * @return
@@ -25,16 +26,17 @@ public interface ReportService {
     TurnoverReportVO getTurnoverStatistics(LocalDate begin, LocalDate end);
 
 
-
     /**
      * 统计指定区间内的用户数据
+     *
      * @return
      */
     UserReportVO getUserStatistics(LocalDate begin, LocalDate end);
 
 
     /**
-     *统计指定区间内的订单数据
+     * 统计指定区间内的订单数据
+     *
      * @param begin
      * @param end
      * @return
@@ -42,7 +44,8 @@ public interface ReportService {
     OrderReportVO getOrderStatistics(LocalDate begin, LocalDate end);
 
     /**
-     *统计指定区间内的销量排名前十
+     * 统计指定区间内的销量排名前十
+     *
      * @param begin
      * @param end
      * @return
@@ -52,6 +55,7 @@ public interface ReportService {
 
     /**
      * 导出数据运营报表
+     *
      * @param response
      */
     void exportBusinessData(HttpServletResponse response);

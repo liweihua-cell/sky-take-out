@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!--configuration核心配置文件-->
 <configuration>
-<!--    引入外部配置文件-->
+    <!--    引入外部配置文件-->
     <properties resource="db.properties">
         <property name="username" value="zhangsan"/>
         <property name="password" value="23142"/>
@@ -12,16 +12,16 @@
 
 
     <settings>
-<!--标准的日志工厂 <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <!--标准的日志工厂 <setting name="logImpl" value="STDOUT_LOGGING"/>-->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
-<!--是否开启自动驼峰命名规则映射-->
+        <!--是否开启自动驼峰命名规则映射-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-<!--        显式的开启全局缓存-->
+        <!--        显式的开启全局(二级)缓存-->
         <setting name="cacheEnabled" value="true"/>
     </settings>
-<!--    可以给实体类起别名-->
+    <!--    可以给实体类起别名-->
     <typeAliases>
-<!--        <typeAlias type="com.lihua.pojo.User" alias="user"/>-->
+        <!--        <typeAlias type="com.lihua.pojo.User" alias="user"/>-->
         <package name="com.sky.entity"/>
     </typeAliases>
 

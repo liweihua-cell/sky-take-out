@@ -49,6 +49,7 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 统计指定区间内的营业额数据
+     *
      * @param begin
      * @param end
      * @return
@@ -58,7 +59,7 @@ public class ReportServiceImpl implements ReportService {
         //当前集合用于存放从begin到end范围的每天的日期
         List<LocalDate> dateList = new ArrayList<>();
         dateList.add(begin);
-        while(!begin.equals(end)){
+        while (!begin.equals(end)) {
             //日期计算，计算指定日期的后一天对应的日期
             begin = begin.plusDays(1);
             dateList.add(begin);
@@ -71,30 +72,31 @@ public class ReportServiceImpl implements ReportService {
             LocalDateTime endTime = LocalDateTime.of(localDate, LocalTime.MAX);
 
             Map map = new HashMap();
-            map.put("begin",beginTime);
-            map.put("end",endTime);
+            map.put("begin", beginTime);
+            map.put("end", endTime);
             map.put("status", Orders.COMPLETED);
             Double turnover = orderMapper.sumByMap(map);
-            turnover = turnover == null?0.0:turnover;
+            turnover = turnover == null ? 0.0 : turnover;
             turnoverList.add(turnover);
         }
 
         return TurnoverReportVO.
-                builder().dateList( StringUtils.join(dateList,","))
-                .turnoverList(StringUtils.join(turnoverList,","))
+                builder().dateList(StringUtils.join(dateList, ","))
+                .turnoverList(StringUtils.join(turnoverList, ","))
                 .build();
     }
 
 
     /**
      * 统计指定区间内的用户数据
+     *
      * @return
      */
-    public UserReportVO getUserStatistics(LocalDate begin, LocalDate end){
+    public UserReportVO getUserStatistics(LocalDate begin, LocalDate end) {
         List<LocalDate> dateList = new ArrayList<>();
         dateList.add(begin);
 
-        while(!begin.equals(end)){
+        while (!begin.equals(end)) {
             //日期计算，计算指定日期的后一天对应的日期
             begin = begin.plusDays(1);
             dateList.add(begin);
@@ -109,12 +111,12 @@ public class ReportServiceImpl implements ReportService {
             LocalDateTime beginTime = LocalDateTime.of(date, LocalTime.MIN);
             LocalDateTime endTime = LocalDateTime.of(date, LocalTime.MAX);
             Map map = new HashMap();
-            map.put("end",endTime);
+            map.put("end", endTime);
 
             //总用户数量
             Integer totalUser = userMapper.countByMap(map);
 
-            map.put("begin",beginTime);
+            map.put("begin", beginTime);
             //新增用户数量
             Integer newUser = userMapper.countByMap(map);
 
@@ -122,25 +124,26 @@ public class ReportServiceImpl implements ReportService {
             newUserList.add(newUser);
         }
         return UserReportVO.builder()
-                .dateList(StringUtils.join(dateList,","))
-                .totalUserList(StringUtils.join(totalUserList,","))
-                .newUserList(StringUtils.join(newUserList,","))
+                .dateList(StringUtils.join(dateList, ","))
+                .totalUserList(StringUtils.join(totalUserList, ","))
+                .newUserList(StringUtils.join(newUserList, ","))
                 .build();
 
     }
 
 
     /**
-     *统计指定区间内的订单数据
+     * 统计指定区间内的订单数据
+     *
      * @param begin
      * @param end
      * @return
      */
-    public OrderReportVO getOrderStatistics(LocalDate begin, LocalDate end){
+    public OrderReportVO getOrderStatistics(LocalDate begin, LocalDate end) {
         List<LocalDate> dateList = new ArrayList<>();
         dateList.add(begin);
 
-        while(!begin.equals(end)){
+        while (!begin.equals(end)) {
             //日期计算，计算指定日期的后一天对应的日期
             begin = begin.plusDays(1);
             dateList.add(begin);
@@ -172,13 +175,13 @@ public class ReportServiceImpl implements ReportService {
 
         //计算订单完成率
         Double orderCompletionRate = 0.0;
-        if(totalOrderCount != 0){
-            orderCompletionRate = validOrderCount.doubleValue() /totalOrderCount;
+        if (totalOrderCount != 0) {
+            orderCompletionRate = validOrderCount.doubleValue() / totalOrderCount;
         }
         return OrderReportVO.builder()
-                .dateList(StringUtils.join(dateList,","))
-                .orderCountList(StringUtils.join(orderCountList,","))
-                .validOrderCountList(StringUtils.join(validOrderCountList,","))
+                .dateList(StringUtils.join(dateList, ","))
+                .orderCountList(StringUtils.join(orderCountList, ","))
+                .validOrderCountList(StringUtils.join(validOrderCountList, ","))
                 .totalOrderCount(totalOrderCount)
                 .validOrderCount(validOrderCount)
                 .orderCompletionRate(orderCompletionRate)
@@ -189,27 +192,29 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 根据条件统计订单数量
+     *
      * @param begin
      * @param end
      * @param status
      * @return
      */
-    private Integer getOrderCount(LocalDateTime begin,LocalDateTime end,Integer status){
+    private Integer getOrderCount(LocalDateTime begin, LocalDateTime end, Integer status) {
         Map map = new HashMap();
-        map.put("begin",begin);
-        map.put("end",end);
-        map.put("status",status);
+        map.put("begin", begin);
+        map.put("end", end);
+        map.put("status", status);
         return orderMapper.countByMap(map);
 
     }
 
     /**
-     *统计指定区间内的销量排名前十
+     * 统计指定区间内的销量排名前十
+     *
      * @param begin
      * @param end
      * @return
      */
-    public SalesTop10ReportVO getSalesTop10(LocalDate begin, LocalDate end){
+    public SalesTop10ReportVO getSalesTop10(LocalDate begin, LocalDate end) {
         LocalDateTime beginTime = LocalDateTime.of(begin, LocalTime.MIN);
         LocalDateTime endTime = LocalDateTime.of(end, LocalTime.MAX);
 
@@ -229,9 +234,10 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 导出数据运营报表
+     *
      * @param response
      */
-    public void exportBusinessData(HttpServletResponse response){
+    public void exportBusinessData(HttpServletResponse response) {
         //1.查询数据库获取营业数据--查询最近30天的营业数据
         LocalDate dateBegin = LocalDate.now().minusDays(30);
         LocalDate dateEnd = LocalDate.now().minusDays(1);
@@ -247,7 +253,7 @@ public class ReportServiceImpl implements ReportService {
             //获取表格文件的sheet页
             XSSFSheet sheet = excel.getSheet("Sheet1");
             //填充数据--时间
-            sheet.getRow(1).getCell(1).setCellValue("时间:"+dateBegin+"至"+dateEnd);
+            sheet.getRow(1).getCell(1).setCellValue("时间:" + dateBegin + "至" + dateEnd);
 
             //获得第四行
             XSSFRow row = sheet.getRow(3);

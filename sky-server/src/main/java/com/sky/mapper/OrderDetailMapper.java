@@ -17,6 +17,7 @@ public interface OrderDetailMapper {
 
     /**
      * 批量插入订单数据
+     *
      * @param orderDetailList
      */
     void insertBatch(List<OrderDetail> orderDetailList);
@@ -24,6 +25,7 @@ public interface OrderDetailMapper {
 
     /**
      * 根据订单id查询订单明细
+     *
      * @param orderId
      * @return
      */

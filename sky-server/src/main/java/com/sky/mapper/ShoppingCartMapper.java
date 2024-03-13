@@ -16,9 +16,10 @@ import java.util.List;
  */
 @Mapper
 public interface ShoppingCartMapper {
-    
+
     /**
-     *动态条件查询
+     * 动态条件查询
+     *
      * @param shoppingCart
      * @return
      */
@@ -27,6 +28,7 @@ public interface ShoppingCartMapper {
 
     /**
      * 根据id修改商品数量
+     *
      * @param shoppingCart
      */
     @Update("update shopping_cart set number = #{number} where id = #{id}")
@@ -35,6 +37,7 @@ public interface ShoppingCartMapper {
 
     /**
      * 插入购物车数据
+     *
      * @param shoppingCart
      */
     @Insert("insert into shopping_cart ( name, image, user_id, dish_id, setmeal_id, dish_flavor, number, amount, create_time) values" +
@@ -44,6 +47,7 @@ public interface ShoppingCartMapper {
 
     /**
      * 根据用户id删除购物车数据
+     *
      * @param userId
      */
     @Delete("delete from shopping_cart where user_id = #{userId}")

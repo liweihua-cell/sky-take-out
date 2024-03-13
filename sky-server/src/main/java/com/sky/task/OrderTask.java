@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**定时处理订单状态
+/**
+ * 定时处理订单状态
+ *
  * @author liweihua
  * @classname OrderTask
  * @description TODO
@@ -27,11 +29,11 @@ public class OrderTask {
      * 处理超时订单的方法
      */
     @Scheduled(cron = "0 * * * * *")//每分钟触发一次
-    public void processTimeOutOrder(){
+    public void processTimeOutOrder() {
         log.info("定时处理超时订单:{}", LocalDateTime.now());
         LocalDateTime time = LocalDateTime.now().plusMinutes(-15);
         List<Orders> ordersList = orderMapper.getByStatusAndOrderTimeLT(Orders.PENDING_PAYMENT, time);
-        if(ordersList != null && ordersList.size() > 0 ){
+        if (ordersList != null && ordersList.size() > 0) {
             for (Orders orders : ordersList) {
                 orders.setStatus(Orders.CANCELLED);
                 orders.setCancelReason("订单超时，自动取消");
@@ -46,12 +48,12 @@ public class OrderTask {
      * 处理一直处于派送中的订单
      */
     @Scheduled(cron = "0 0 1 * * ?")//每天早上一点
-    public void processDeliveryOrder(){
-        log.info("定时处理处于派送中的订单:{}",LocalDateTime.now());
+    public void processDeliveryOrder() {
+        log.info("定时处理处于派送中的订单:{}", LocalDateTime.now());
         LocalDateTime time = LocalDateTime.now().plusMinutes(-60);
         List<Orders> ordersList = orderMapper.getByStatusAndOrderTimeLT(Orders.DELIVERY_IN_PROGRESS, time);
 
-        if(ordersList != null && ordersList.size() > 0 ){
+        if (ordersList != null && ordersList.size() > 0) {
             for (Orders orders : ordersList) {
                 orders.setStatus(Orders.COMPLETED);
                 orderMapper.update(orders);

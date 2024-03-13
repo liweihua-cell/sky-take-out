@@ -53,6 +53,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     /**
      * 通过knife4j生成接口文档
+     *
      * @return
      */
     @Bean
@@ -73,7 +74,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
 
-
     @Bean
     public Docket docket2() {
         ApiInfo apiInfo = new ApiInfoBuilder()
@@ -92,9 +92,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
 
-
     /**
      * 设置静态资源映射
+     *
      * @param registry
      */
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -105,6 +105,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     /**
      * 扩展springmvc框架的消息转换器
      * 此处用来转换时间格式为"yyyy-MM-dd HH:mm"
+     *
      * @param converters
      */
     @Override
@@ -115,6 +116,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         //需要为消息转换器设置一个对象转换器，对象转换器可以将java对象序列化为json数据
         converter.setObjectMapper(new JacksonObjectMapper());
         //将自己的消息转换器加入容器中,0表示优先使用放入的转换器
-        converters.add(0,converter);
+        converters.add(0, converter);
     }
 }

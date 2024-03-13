@@ -39,32 +39,33 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 添加购物车
+     *
      * @param shoppingCartDTO
      */
     public void addShoppingCart(ShoppingCartDTO shoppingCartDTO) {
         //判断当前加入购物车的商品是否已经存在
         ShoppingCart shoppingCart = new ShoppingCart();
-        BeanUtils.copyProperties(shoppingCartDTO,shoppingCart);
+        BeanUtils.copyProperties(shoppingCartDTO, shoppingCart);
         Long userId = BaseContext.getCurrentId();
         shoppingCart.setUserId(userId);
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
 
         //如果已经存在只需要将数量+1
-        if(list != null && list.size() > 0){
+        if (list != null && list.size() > 0) {
             ShoppingCart cart = list.get(0);
-            cart.setNumber(cart.getNumber()+1);
+            cart.setNumber(cart.getNumber() + 1);
             shoppingCartMapper.updateNumberById(cart);
-        }else{
+        } else {
             //如果不存在需要加入一条购物车数据
             //判断本次添加到购物车的是菜品还是套餐
             Long dishId = shoppingCartDTO.getDishId();
-            if(dishId != null){
+            if (dishId != null) {
                 //本次添加到购物车的是菜品
                 Dish dish = dishMapper.getById(dishId);
                 shoppingCart.setName(dish.getName());
                 shoppingCart.setImage(dish.getImage());
                 shoppingCart.setAmount(dish.getPrice());
-            }else{
+            } else {
                 //本次添加到购物车的是套餐
                 Long setmealId = shoppingCartDTO.getSetmealId();
                 List<SetmealDish> setmealDishes = setMealDishMapper.getBySetmealId(setmealId);
@@ -82,9 +83,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 查看购物车
+     *
      * @return
      */
-    public List<ShoppingCart> showShoppingCart(){
+    public List<ShoppingCart> showShoppingCart() {
 
         //获取到当前用户的id
         Long userId = BaseContext.getCurrentId();
@@ -98,7 +100,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     /**
      * 清空购物车
      */
-    public void cleanShoppingCart(){
+    public void cleanShoppingCart() {
         Long userId = BaseContext.getCurrentId();
         shoppingCartMapper.deleteByUserId(userId);
     }

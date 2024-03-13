@@ -32,9 +32,9 @@ public class OrderController {
 
     @PostMapping("/submit")
     @ApiOperation("用户下单")
-    public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO){
-        log.info("用户下单参数为:{}",ordersSubmitDTO);
-        OrderSubmitVO orderSubmitVO =  orderService.submitOrder(ordersSubmitDTO);
+    public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
+        log.info("用户下单参数为:{}", ordersSubmitDTO);
+        OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
         return Result.success(orderSubmitVO);
     }
 
@@ -70,7 +70,6 @@ public class OrderController {
     }
 
 
-
     /**
      * 查询订单详情
      *
@@ -98,7 +97,6 @@ public class OrderController {
     }
 
 
-
     /**
      * 再来一单
      *
@@ -114,12 +112,13 @@ public class OrderController {
 
     /**
      * 客户催单
+     *
      * @param id
      * @return
      */
     @GetMapping("/reminder/{id}")
     @ApiOperation("客户催单")
-    public Result reminder(@PathVariable("id") Long id){
+    public Result reminder(@PathVariable("id") Long id) {
         orderService.reminder(id);
         return Result.success();
     }

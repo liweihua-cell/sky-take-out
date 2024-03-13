@@ -17,6 +17,7 @@ public interface ShoppingCartService {
 
     /**
      * 添加购物车
+     *
      * @param shoppingCartDTO
      */
     void addShoppingCart(ShoppingCartDTO shoppingCartDTO);
@@ -24,6 +25,7 @@ public interface ShoppingCartService {
 
     /**
      * 查看购物车
+     *
      * @return
      */
     List<ShoppingCart> showShoppingCart();

@@ -7,7 +7,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**自定义注解，用于标识某个方法需要进行功能字段的自动填充处理
+/**
+ * 自定义注解，用于标识某个方法需要进行功能字段的自动填充处理
+ *
  * @author liweihua
  * @classname AutoFill
  * @description TODO

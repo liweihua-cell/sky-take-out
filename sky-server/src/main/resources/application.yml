@@ -2,6 +2,35 @@ server:
   port: 8080
 
 spring:
+  ##application:     集成nacos注册中心配置
+  ##name: leadnews-article
+  ##cloud:
+  ##  nacos:
+  ##      discovery:
+  ##        server-addr: 192.168.200.130:8848
+  ##      config:
+  ##        server-addr: 192.168.200.130:8848
+  ##        file-extension: yml
+  ##  sentinel:
+  ##    transport:
+  ##      port: 9999 跟控制台交流的端口，随意指定一个未使用的端口即可
+  ##      dashboard localhost:8080  指定控制台服务的地址
+  ##    filter:
+  ##      enabled: false
+  ##feign:  集成feign远程调用配置
+  #开启feign对hystrix熔断降级的支持
+  ## hystrix:
+  ##   enabled: true
+  ##开启feign对sentinel的支持
+  ## sentinel:
+  ##   enabled: true
+  #修改调用超时时间
+  ##client:
+  ##config:
+  ## connectTimeout: 2000
+  ## readTimeout: 2000
+
+
   profiles:
     active: dev
   main:

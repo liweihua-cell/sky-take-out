@@ -49,7 +49,7 @@ public class EmployeeController {
         log.info("员工登录：{}", employeeLoginDTO);
         String password = employeeLoginDTO.getPassword();
         String s = DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8));
-        System.out.println("md5加密后:"+s);
+        System.out.println("md5加密后:" + s);
         Employee employee = employeeService.login(employeeLoginDTO);
 
         //登录成功后，生成jwt令牌
@@ -82,13 +82,14 @@ public class EmployeeController {
 
     /**
      * 新增员工
+     *
      * @param employeeDTO
      * @return
      */
     @PostMapping
     @ApiOperation("新增员工")
-    public Result save(@RequestBody EmployeeDTO employeeDTO){
-        log.info("新增员工:{}",employeeDTO);
+    public Result save(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("新增员工:{}", employeeDTO);
         employeeService.save(employeeDTO);
         return Result.success();
     }
@@ -98,35 +99,37 @@ public class EmployeeController {
      */
     @GetMapping("/page")
     @ApiOperation("分页查询员工")
-    public Result<PageResult> page(EmployeePageQueryDTO pageQueryDTO){
-        log.info("员工分页查询，参数为:{}",pageQueryDTO);
+    public Result<PageResult> page(EmployeePageQueryDTO pageQueryDTO) {
+        log.info("员工分页查询，参数为:{}", pageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(pageQueryDTO);
         return Result.success(pageResult);
     }
 
     /**
-     *启用禁用员工账号
+     * 启用禁用员工账号
+     *
      * @param status
      * @param id
      * @return
      */
     @PostMapping("/status/{status}")
     @ApiOperation("启用禁用员工账号")
-    public Result startOrStop(@PathVariable Integer status,Long id){
-        log.info("启用禁用员工账号：{}，{}",status,id);
-        employeeService.startOrStop(status,id);
+    public Result startOrStop(@PathVariable Integer status, Long id) {
+        log.info("启用禁用员工账号：{}，{}", status, id);
+        employeeService.startOrStop(status, id);
         return Result.success();
     }
 
 
     /**
      * 根据id查询员工信息
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
     @ApiOperation("根据id查询员工信息")
-    public Result<Employee> getById(@PathVariable Long id){
+    public Result<Employee> getById(@PathVariable Long id) {
         Employee employee = employeeService.getById(id);
         return Result.success(employee);
     }
@@ -134,13 +137,14 @@ public class EmployeeController {
 
     /**
      * 修改员工信息
+     *
      * @param employeeDTO
      * @return
      */
     @PutMapping
     @ApiOperation("修改员工信息")
-    public Result update(@RequestBody EmployeeDTO employeeDTO){
-        log.info("修改员工信息:{}",employeeDTO);
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("修改员工信息:{}", employeeDTO);
         employeeService.update(employeeDTO);
         return Result.success();
     }

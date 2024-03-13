@@ -1,0 +1,26 @@
+server:
+  port: 8848
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.200.130:8848
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #让gateway从nacos中获取服务信息
+      routes:     #路由数组[就是指当请求满足什么条件的时候转发到哪个微服务上]
+        - id: product_route     #当前路由转发的标识，要求唯一,默认是uuid
+      #    uri: http://localhost:8081      #请求最终被转发到的地址
+          uri: lb://servce-product   #lb指的是负载均衡，后面跟的是具体微服务在nacos中的标识
+          order: 1     #路由的优先级，数字越小代表路由的优先级越高
+          predicates: #断言（条件判断，返回值是boolean，转发请求需要满足的条件）
+            - Path=/product-serv/**  #当请求路径满足path指定的规则时，此路由信息才会正常转发
+            - Method=get    #当请求为get才会正常转发
+            - Before=2024-11-21T00:00:00.000+8:00    #当时间在2024-11-21T00:00:00.000+8:00之前才转发
+          filters: #过滤器（在请求传递过程中对请求做一些手脚）
+            - StripPrefix=1  #$在请求转发之前去掉一层路径
+            - Log=true   #是否打印日志

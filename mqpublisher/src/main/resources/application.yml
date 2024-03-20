@@ -1,0 +1,21 @@
+logging:
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+  level:
+    com.itheima: debug
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    virtual-host: lihua
+    username: guest
+    password: guest
+    connection-timeout: 1s #设置mq的超时重试时长
+    template:
+      retry:
+        enabled: true #开启超时重试机制
+        multiplier: 2  #失败后下次的等待时长倍数
+        initial-interval: 1000ms #失败后的初始等待时间
+        max-attempts: 3 #最大重试次数
+    publisher-confirm-type: correlated #开启生产者确认机制并设置确认类型
+    publisher-returns: true #开启生产者确认机制

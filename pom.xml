@@ -19,6 +19,7 @@
         <module>api-gateway</module>
         <module>mqpublisher</module>
         <module>mqconsumer</module>
+        <module>dubbo</module>
     </modules>
     <properties>
         <mybatis.spring>2.2.0</mybatis.spring>

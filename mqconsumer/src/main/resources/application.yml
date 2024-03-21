@@ -10,7 +10,7 @@ spring:
     password: guest
     listener:
       simple:
-        prefetch: 1  #每次只能获取一次消息，处理完成后才能获取下一个消息，否则人容易出现消息堆积的问题
+        prefetch: 1  #每次只能获取一次消息，处理完成后才能获取下一个消息，否则容易出现消息堆积的问题
         acknowledge-mode: none  #消费者消息确认模式  none为不处理，消息投递给消费者后立即ack，消息会立即从mq删除；manual为手动模式需要在业务代码中调用api；auto为spring自动处理
         retry:
           enabled: true  #开启重试机制

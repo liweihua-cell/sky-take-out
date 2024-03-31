@@ -2,6 +2,7 @@ package com.lihua.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.lihua.service.ProviderService;
+import jdk.nashorn.internal.ir.annotations.Reference;
 
 
 public class DubboController {
